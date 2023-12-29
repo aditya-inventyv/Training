@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fisrt Task Using Html and CSS</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .div-content {
+            display: none;
+        }
+
+        .div-content:target {
+            display: block;
+        }
+
+        #login:default {
+            display: block;
+        }
+        
+        .toggle-btn {
+            text-align: center;
+            text-decoration: none;
+            color: antiquewhite;
+            background-color: rgb(83, 77, 77);
+            border: 2px solid whitesmoke;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="display: flex; flex-direction: row; width:100%;">
+        <div class="left" style="background-color: aqua; height: 100vh; width: 60%; display: flex; justify-content: center; align-items: center; flex-direction: column; background: linear-gradient(to top,#ffcb6b, #9198e5);">
+            <img src="https://images-platform.99static.com//YyXkvk-OTwmuk3RMCRnSgXoWXUQ=/302x0:1502x1200/fit-in/500x500/99designs-contests-attachments/133/133029/attachment_133029236" alt="Logo" style="border-radius: 50%;" width="250px" height="250px">
+            <br><br>
+            <p style="width: 68%; overflow: hidden; text-overflow: ellipsis; display: -webkit-box;  -webkit-line-clamp: 3;  -webkit-box-orient: vertical;
+            white-space: normal; text-align: justify;" >Lorem ipsum dolor, sit ameet consectetur adipisicing elit. Numquam deleniti exercitationem vero odio? Iusto tempore optio, error recusandae dignissimos nostrum dolor. Nam, molestias labore? Sequi quo veniam exercitationem sint mollitia voluptate debitis incidunt voluptatem suscipit? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam nisi expedita excepturi molestiae inventore consectetur molestias corrupti praesentium mollitia? Perferendis!</p>
+        </div>
+        
+        <div class="right" style="background-color: #A9C9FF;
+background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
+; height: 100vh; width: 40%; ">
+
+            <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height:50%; width: 100%; margin-top: 20%;">
+              <div style="display: flex; flex-direction: column; align-items: center;">
+
+                    <img src="https://images-platform.99static.com//YyXkvk-OTwmuk3RMCRnSgXoWXUQ=/302x0:1502x1200/fit-in/500x500/99designs-contests-attachments/133/133029/attachment_133029236" alt="Logo" style="border-radius: 50%; position: relative; top: 30px;" width="80px" height="80px" >
+                </div>
+                <div style="display: flex; flex-direction: row; justify-content: center; align-items: center; width:70%">
+                    <a href="#login" class="toggle-btn" style="border-radius: 5px 0px 0px 5px;  padding:5px 25px ; width: 65%;">Login</a>   
+                    <a href="#register" class="toggle-btn" style="border-radius: 0px 5px 5px 0px;  padding:5px 25px ;width: 65%;">Register</a>
+                </div>
+
+              <div style="background-color: rgb(96, 96, 149); height: 70%; width:65%; padding:10px">
+                <div id="login" style="text-align: center; width: auto;" class="div-content" >
+                    <input type="text" name="username" id="username" placeholder="Username" style="margin-top: 40px; font-size: 15px; padding: 7px; border: none; border-radius: 5px; width: 95%; background-color: black;">
+                    <br>
+                    <input type="password" name="password" id="password" placeholder="Password" style="margin-top: 10px; font-size: 15px; padding: 7px; border: none; border-radius: 5px; width: 95%; background-color: black;">
+                    <br>
+                    <button style="font-size: 15px; margin-top: 20px; width: 100px; border: 1px solid black; border-radius: 7px; padding: 6px;">Login</button>
+                </div>
+
+                <div id="register" style="text-align: center;"  class="div-content">
+                    <input type="text" name="username" id="username" placeholder="Username" style="margin-top: 40px; font-size: 15px; padding: 7px; border: none; border-radius: 5px; width: 95%;background-color: black;">
+                    <br>
+                    <input type="email" name="email" id="email" placeholder="E-mail id" style="margin-top: 10px; font-size: 15px; padding: 7px; border: none; border-radius: 5px; width: 95%;background-color: black;">
+                    <br>
+                    <input type="password" name="password" id="password" placeholder="Password" style="margin-top: 10px; font-size: 15px; padding: 7px; border: none; border-radius: 5px; width: 95%;background-color: black;">
+                    <br>
+                    <button style="font-size: 15px; margin-top: 20px; width: 100px; border: 1px solid black; border-radius: 7px; padding: 6px;">Register</button>
+                </div>
+              </div>
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>
