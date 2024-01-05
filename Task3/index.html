@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .window {
+        border: 1px solid #ccc;
+        padding: 20px;
+        width: 200px;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .button {
+        padding: 10px;
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+
+      .button:hover {
+        background-color: #2980b9;
+      }
+    </style>
+    <script src="server.cjs"></script>
+    <!-- <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script> -->
+    <script>
+      async function Get() {
+        try {
+          const response = await fetch("http://localhost:3000/", {
+            method: "get",
+          });
+          console.log(response);
+
+          if (!response.ok) {
+            throw new Error(response.status + response.statusText);
+          }
+          const data = await response.json();
+          console.log(data);
+        } catch (err) {
+          console.log(err);
+        }
+      }
+
+      async function Post() {
+        try {
+          const response = await fetch("http://localhost:3000/data", {
+            method: "Post",
+            body: {
+              id: 111,
+              title: "iPhone 9",
+              description: "An apple mobile which is nothing like apple"
+            }
+          });
+          const data = await response.json();
+          console.log(data);
+        } catch (err) {
+          console.log(err);
+        }
+      }
+    </script>
+    <title>HTTP Method Windows</title>
+  </head>
+  <body>
+    <p>check</p>
+    <div class="window">
+      <h2>Window 1</h2>
+      <div class="buttons">
+        <button class="button" onclick="Get()">GET</button>
+        <button class="button" onclick="Post()">POST</button>
+        <button class="button">PUT</button>
+        <button class="button">PATCH</button>
+        <button class="button">DELETE</button>
+      </div>
+    </div>
+
+    <div class="window">
+      <h2>Window 2</h2>
+      <div class="buttons">
+        <button class="button">GET</button>
+        <button class="button">POST</button>
+        <button class="button">PUT</button>
+        <button class="button">PATCH</button>
+        <button class="button">DELETE</button>
+      </div>
+    </div>
+  </body>
+</html>
