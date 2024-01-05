@@ -123,9 +123,6 @@ Row
 
 ## Authors
 
-- 
+-Aditya Patel 
 
 
-## License
-
-MIT
