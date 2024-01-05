@@ -1,78 +1,35 @@
-function global(){
-
-var userInput = document.getElementById("userInput").value;
+# Task_5 Aim : Aim: Develop a program that reads a number. Number should be atleast 4 digit long. Generate all possible permutations and combinations of that number and find prime from that. Compare the prime numbers array with Pascal's Triangle and highlight the prime numbers in the Pascal's Triangle. Create an error ratio list and print it. Also create the list of matched elements and missing elements.
 
 
-// const n = 12357;
-const generatedNumbers = genNums(userInput);
-
-const pnc = new Set(generatedNumbers);
-
-const primeNumbers = Array.from(pnc).filter(isPrime);
-
-const max = Math.max(...primeNumbers);
-
-  drawPascalsTriangle(max);
-
-
-console.log("Prime numbers:", primeNumbers);
-console.log("max:", max);
-
-function isPrime(num) {
-  if (num <= 1) return false;
-  for (let i = 2; i <= Math.sqrt(num); i++) {
-    if (num % i === 0) {
-      return false;
-    }
-  }
-  return true;
-}
-
-function genNums(num) {
-  const arr = Array.from(String(num), Number);
-  const res = [];
-
-  function gen(cur, rem) {
-    const genNum = parseInt(cur.join(""), 10);
-
-    if (!isNaN(genNum)) res.push(genNum);
-
-    for (let i = 0; i < rem.length; i++) {
-      const updCur = [...cur, rem[i]];
-      const updRem = [...rem.slice(0, i), ...rem.slice(i + 1)];
-      gen(updCur, updRem);
-    }
-  }
-
-  gen([], arr);
-  return res;
-}
+Row
 
 
 
-function generatePascalsTriangle(rows) {
-  let breaker = false;
-  const triangle = [];
-  for (let i = 0; i < rows; i++) {
-    triangle[i] = [];
-    for (let j = 0; j <= i; j++) {
-      if (j === 0 || j === i) {
-        triangle[i][j] = 1;
-      } else {
-        triangle[i][j] = triangle[i - 1][j - 1] + triangle[i - 1][j];
-        if (triangle[i][j] > max) {
-          breaker = true;
+## Code
+
+⦾ finding Permutation and  Combintaion
+
+
+    function gen(cur, rem) 
+    {
+        const genNum = parseInt(cur.join(''), 10);
+
+        if(!isNaN(genNum)) 
+            res.push(genNum);
+    
+        for(let i = 0; i < rem.length; i++) 
+        {
+            const updCur = [...cur, rem[i]];
+            const updRem = [...rem.slice(0, i), ...rem.slice(i + 1)];
+            gen(updCur, updRem);
         }
-      }
     }
-    if (breaker) {
-      break;
-    }
-  }
-  return triangle;
-}
+  
+    gen([], arr);
+    return res;
 
 
+⦾ pascal generator  function in canvas  
 
 function drawPascalsTriangle(rows) {
   const canvas = document.getElementById("pascalsCanvas");
@@ -131,9 +88,43 @@ function drawPascalsTriangle(rows) {
     }
   }
 }
+    
+   
 
+
+⦾ Generate Pascal Triangle function
+
+
+
+     function generatePascalsTriangle(rows) {
+  let breaker = false;
+  const triangle = [];
+  for (let i = 0; i < rows; i++) {
+    triangle[i] = [];
+    for (let j = 0; j <= i; j++) {
+      if (j === 0 || j === i) {
+        triangle[i][j] = 1;
+      } else {
+        triangle[i][j] = triangle[i - 1][j - 1] + triangle[i - 1][j];
+        if (triangle[i][j] > max) {
+          breaker = true;
+        }
+      }
+    }
+    if (breaker) {
+      break;
+    }
+  }
+  return triangle;
+}
 
   
-// console.log(`Pascal's Triangle Row ${k}:`, pascalsTriangleRow);
 
-}
+## Authors
+
+- 
+
+
+## License
+
+MIT
