@@ -31,32 +31,33 @@ Row
 
 ⦾ pascal generator  function in canvas  
 
-function drawPascalsTriangle(rows) {
-  const canvas = document.getElementById("pascalsCanvas");
-  const ctx = canvas.getContext("2d");
-  const triangle = generatePascalsTriangle(rows);
 
-  const circleRadius = 12;
-  const horizontalSpacing = 2.5;
-  const verticalSpacing = 20;
-
-  const triangleHeight = triangle.length * (circleRadius * 2 + verticalSpacing);
-  const triangleWidth =
-    triangle[triangle.length - 1].length *
-    (circleRadius * 2 + horizontalSpacing);
-
-  canvas.width = triangleWidth;
-  canvas.height = triangleHeight;
-
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.font = "10px Arial";
-
-  console.log(triangle.length);
-
-  for (let i = 0; i < triangle.length; i++) {
-    const startX =
-      (canvas.width - i * (circleRadius * 2 + horizontalSpacing)) / 2;
-    const startY = (i + 1) * (circleRadius * 2 + verticalSpacing);
+    function drawPascalsTriangle(rows) {
+      const canvas = document.getElementById("pascalsCanvas");
+      const ctx = canvas.getContext("2d");
+      const triangle = generatePascalsTriangle(rows);
+    
+      const circleRadius = 12;
+      const horizontalSpacing = 2.5;
+      const verticalSpacing = 20;
+    
+      const triangleHeight = triangle.length * (circleRadius * 2 + verticalSpacing);
+      const triangleWidth =
+        triangle[triangle.length - 1].length *
+        (circleRadius * 2 + horizontalSpacing);
+    
+      canvas.width = triangleWidth;
+      canvas.height = triangleHeight;
+    
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.font = "10px Arial";
+    
+      console.log(triangle.length);
+    
+      for (let i = 0; i < triangle.length; i++) {
+        const startX =
+          (canvas.width - i * (circleRadius * 2 + horizontalSpacing)) / 2;
+        const startY = (i + 1) * (circleRadius * 2 + verticalSpacing);
 
     for (let j = 0; j < triangle[i].length; j++) {
       const number = triangle[i][j];
@@ -97,28 +98,28 @@ function drawPascalsTriangle(rows) {
 
 
      function generatePascalsTriangle(rows) {
-  let breaker = false;
-  const triangle = [];
-  for (let i = 0; i < rows; i++) {
-    triangle[i] = [];
-    for (let j = 0; j <= i; j++) {
-      if (j === 0 || j === i) {
-        triangle[i][j] = 1;
-      } else {
-        triangle[i][j] = triangle[i - 1][j - 1] + triangle[i - 1][j];
-        if (triangle[i][j] > max) {
-          breaker = true;
+      let breaker = false;
+      const triangle = [];
+      for (let i = 0; i < rows; i++) {
+        triangle[i] = [];
+        for (let j = 0; j <= i; j++) {
+          if (j === 0 || j === i) {
+            triangle[i][j] = 1;
+          } else {
+            triangle[i][j] = triangle[i - 1][j - 1] + triangle[i - 1][j];
+            if (triangle[i][j] > max) {
+              breaker = true;
+            }
+          }
+        }
+        if (breaker) {
+          break;
         }
       }
+      return triangle;
     }
-    if (breaker) {
-      break;
-    }
-  }
-  return triangle;
-}
-
-  
+    
+      
 
 ## Authors
 
